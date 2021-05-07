@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">The Folks App</string>
+    <string name="welcomeTitle">Smart People Smart Living</string>
+    <string name="welcomeSubtitle">Nikmati berbagai akses layanan publik di Indonesia dalam genggaman</string>
+    <string name="lanjutkan">Lanjutkan</string>
+    <string name="todo">TODO</string>
 </resources>
