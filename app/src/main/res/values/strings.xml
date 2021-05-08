@@ -4,4 +4,13 @@
     <string name="welcomeSubtitle">Nikmati berbagai akses layanan publik di Indonesia dalam genggaman</string>
     <string name="lanjutkan">Lanjutkan</string>
     <string name="todo">TODO</string>
+    <string name="usernameLoginLabel">Username or Email</string>
+    <string name="usernameLoginHint">youremailhere@gmail.com</string>
+    <string name="passwordLoginLabel">Password</string>
+    <string name="passwordLoginHint">••••••••</string>
+    <string name="forgetPasswordLogin">FORGET PASSWORD?</string>
+    <string name="LoginButton">Login</string>
+    <string name="orLoginSeperator">OR</string>
+    <string name="signUpLogin">Sign Up</string>
+    <string name="welcomeLogin">Welcome</string>
 </resources>
