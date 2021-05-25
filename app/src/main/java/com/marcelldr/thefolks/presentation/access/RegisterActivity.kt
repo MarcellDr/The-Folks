@@ -1,8 +1,6 @@
 package com.marcelldr.thefolks.presentation.access
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -10,7 +8,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.marcelldr.thefolks.R
 import com.marcelldr.thefolks.databinding.ActivityRegisterBinding
 import com.marcelldr.thefolks.presentation.dialog.LoadingDialog
-import com.marcelldr.thefolks.presentation.dialog.RegisterSuccessDialog
+import com.marcelldr.thefolks.presentation.dialog.SuccessDialog
 import org.koin.android.ext.android.inject
 
 class RegisterActivity : AppCompatActivity() {
@@ -52,7 +50,10 @@ class RegisterActivity : AppCompatActivity() {
             if (it.isSuccessful) {
                 registerUser()
                 loadingDialog.dismiss()
-                val registerSuccessDialog = RegisterSuccessDialog(this)
+                val registerSuccessDialog = SuccessDialog(
+                    this,
+                    "Congratulations, your account has been successfully created"
+                )
                 registerSuccessDialog.show()
             } else {
                 loadingDialog.dismiss()

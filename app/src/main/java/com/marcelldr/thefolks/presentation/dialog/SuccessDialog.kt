@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.marcelldr.thefolks.R
 
 @SuppressLint("SetTextI18n")
-class RegisterSuccessDialog(activity: AppCompatActivity) {
+class SuccessDialog(activity: AppCompatActivity, message: String) {
     private var dialog: Dialog = Dialog(activity)
     private var successMessage: TextView
     private var successButton: Button
@@ -24,7 +24,7 @@ class RegisterSuccessDialog(activity: AppCompatActivity) {
         successMessage = dialog.findViewById(R.id.successMessage)
         successButton = dialog.findViewById(R.id.successButton)
 
-        successMessage.text = "Congratulations, your account has been successfully created"
+        successMessage.text = message
         successButton.setOnClickListener {
             dismiss()
             activity.finish()

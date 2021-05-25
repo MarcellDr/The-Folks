@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.marcelldr.thefolks.R
 import com.marcelldr.thefolks.databinding.ActivityForgetBinding
-import com.marcelldr.thefolks.presentation.dialog.ForgetSuccessDialog
 import com.marcelldr.thefolks.presentation.dialog.LoadingDialog
+import com.marcelldr.thefolks.presentation.dialog.SuccessDialog
 import org.koin.android.ext.android.inject
 
 class ForgetActivity : AppCompatActivity() {
@@ -48,7 +48,10 @@ class ForgetActivity : AppCompatActivity() {
         mAuth.sendPasswordResetEmail(email).addOnCompleteListener {
             if (it.isSuccessful) {
                 loadingDialog.dismiss()
-                val forgetSuccessDialog = ForgetSuccessDialog(this)
+                val forgetSuccessDialog = SuccessDialog(
+                    this,
+                    "We have sent you an email. Please check your email to reset your password."
+                )
                 forgetSuccessDialog.show()
             } else {
                 loadingDialog.dismiss()
