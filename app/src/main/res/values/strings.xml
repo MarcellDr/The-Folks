@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">The Folks</string>
+    <string name="todo">todo</string>
+    <string name="welcome_title">Smart People Smart Living</string>
+    <string name="welcome_subtitle">Nikmati berbagai akses layanan publik di Indonesia dalam genggaman</string>
+    <string name="get_started">Get Started</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="or">OR</string>
+    <string name="login">Login</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="password">Password</string>
+    <string name="password_hint">*****</string>
+    <string name="email_hint">youremailhere@gmail.com</string>
+    <string name="email">Email</string>
+    <string name="forget_hint">Enter your email to reset your password</string>
+    <string name="send">Send</string>
+    <string name="register_hint">Enter your email and set your password to register</string>
+    <string name="register">Register</string>
+    <string name="hello_there">Hello There.</string>
+    <string name="login_or_sign_up_to_continue">Login or sign up to continue</string>
+</resources>
