@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.marcelldr.thefolks">
+    <uses-feature android:name="android.hardware.camera.any" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".MyApplication"
@@ -12,7 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheFolks">
-        <activity android:name=".presentation.access.ForgetActivity"/>
+        <activity android:name=".presentation.upgrade.UpgradeP3Activity"></activity>
+        <activity android:name=".presentation.upgrade.UpgradeP2Activity" />
+        <activity android:name=".presentation.upgrade.UpgradeP1Activity" />
+        <activity android:name=".presentation.upgrade.PhotoReviewActivity" />
+        <activity android:name=".presentation.upgrade.PhotoSelfieActivity" />
+        <activity android:name=".presentation.upgrade.PhotoKtpActivity" />
+        <activity android:name=".presentation.access.ForgetActivity" />
         <activity android:name=".presentation.access.RegisterActivity" />
         <activity android:name=".presentation.access.LoginActivity" />
         <activity android:name=".presentation.init.WelcomeActivity" />

@@ -52,13 +52,20 @@ class RegisterActivity : AppCompatActivity() {
                 loadingDialog.dismiss()
                 val registerSuccessDialog = SuccessDialog(
                     this,
-                    "Congratulations, your account has been successfully created"
+                    resources.getString(R.string.register_success_message)
                 )
                 registerSuccessDialog.show()
+                registerSuccessDialog.setOnContinueClickCallback(object :
+                    SuccessDialog.OnContinueClickCallback {
+                    override fun onClicked() {
+                        registerSuccessDialog.dismiss()
+                        finish()
+                    }
+                })
             } else {
                 loadingDialog.dismiss()
                 Toast.makeText(
-                    baseContext, "Something went wrong",
+                    baseContext, resources.getString(R.string.error_message),
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -70,6 +77,7 @@ class RegisterActivity : AppCompatActivity() {
         val data = HashMap<String, Any>()
         data["uid"] = user?.uid.toString()
         data["email"] = user?.email.toString()
+        data["status"] = "guest"
         db.collection("users")
             .document(user?.uid.toString())
             .set(data)

@@ -9,8 +9,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.marcelldr.thefolks.R
 import com.marcelldr.thefolks.databinding.ActivityLoginBinding
 import com.marcelldr.thefolks.presentation.dialog.LoadingDialog
+import com.marcelldr.thefolks.presentation.upgrade.UpgradeP1Activity
 import org.koin.android.ext.android.inject
 
 class LoginActivity : AppCompatActivity() {
@@ -57,13 +59,13 @@ class LoginActivity : AppCompatActivity() {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
             if(it.isSuccessful) {
                 loadingDialog.dismiss()
-                Log.d(TAG, "signInWithEmail:success")
                 Toast.makeText(baseContext, "Login berhasil",
                     Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this@LoginActivity, UpgradeP1Activity::class.java))
+                finish()
             } else {
                 loadingDialog.dismiss()
-                Log.w(TAG, "createUserWithEmail:failure", it.exception)
-                Toast.makeText(baseContext, "Something went wrong",
+                Toast.makeText(baseContext, resources.getString(R.string.error_message),
                     Toast.LENGTH_SHORT).show()
             }
         }

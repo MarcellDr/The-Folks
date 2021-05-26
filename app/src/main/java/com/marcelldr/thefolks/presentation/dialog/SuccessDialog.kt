@@ -15,6 +15,15 @@ class SuccessDialog(activity: AppCompatActivity, message: String) {
     private var dialog: Dialog = Dialog(activity)
     private var successMessage: TextView
     private var successButton: Button
+    private lateinit var onContinueClickCallback: OnContinueClickCallback
+
+    interface OnContinueClickCallback {
+        fun onClicked()
+    }
+
+    fun setOnContinueClickCallback(onContinueClickCallback: OnContinueClickCallback) {
+        this.onContinueClickCallback = onContinueClickCallback
+    }
 
     init {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -25,10 +34,7 @@ class SuccessDialog(activity: AppCompatActivity, message: String) {
         successButton = dialog.findViewById(R.id.successButton)
 
         successMessage.text = message
-        successButton.setOnClickListener {
-            dismiss()
-            activity.finish()
-        }
+        successButton.setOnClickListener { onContinueClickCallback.onClicked() }
     }
 
     fun show() {

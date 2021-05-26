@@ -50,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
+                app:boxStrokeColor="@color/grey"
                 app:hintEnabled="false">
 
                 <EditText
@@ -88,6 +89,7 @@
                 android:id="@+id/loginPasswordAlert"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/grey"
                 app:hintEnabled="false"
                 app:passwordToggleEnabled="true">
 

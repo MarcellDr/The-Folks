@@ -1,8 +1,6 @@
 package com.marcelldr.thefolks.presentation.access
 
-import android.content.ContentValues
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -50,12 +48,18 @@ class ForgetActivity : AppCompatActivity() {
                 loadingDialog.dismiss()
                 val forgetSuccessDialog = SuccessDialog(
                     this,
-                    "We have sent you an email. Please check your email to reset your password."
+                    resources.getString(R.string.forget_success_message)
                 )
                 forgetSuccessDialog.show()
+                forgetSuccessDialog.setOnContinueClickCallback(object :
+                    SuccessDialog.OnContinueClickCallback {
+                    override fun onClicked() {
+                        forgetSuccessDialog.dismiss()
+                        finish()
+                    }
+                })
             } else {
                 loadingDialog.dismiss()
-                Log.w(ContentValues.TAG, "forgetPassword:failure", it.exception)
                 Toast.makeText(
                     baseContext, "Something went wrong",
                     Toast.LENGTH_SHORT
