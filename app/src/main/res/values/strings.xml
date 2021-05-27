@@ -44,4 +44,22 @@
     <string name="nomor_induk_kependudukan_nik">Nomor Induk Kependudukan (NIK)</string>
     <string name="nama_lengkap_sesuai_ktp">Nama Lengkap (Sesuai KTP)</string>
     <string name="upgrade_success_message">Permohonan Anda berhasil kami terima.</string>
+    <string name="home">Home</string>
+    <string name="pocket">Pocket</string>
+    <string name="e_money">E-Money</string>
+    <string name="profile">Profile</string>
+    <string name="kartu_layanan">Kartu Layanan</string>
+    <string name="surat_izin_mengemudi_c">Surat Izin Mengemudi (C)</string>
+    <string name="_1005_0304_000388">1005-0304-000388</string>
+    <string name="wajib_pajak_npwp">Wajib Pajak (NPWP)</string>
+    <string name="_93_057_598_0_000_000">93.057.598.0-000.000</string>
+    <string name="bpjs">BPJS</string>
+    <string name="_0001444427943">0001444427943</string>
+    <string name="sim_card">SIM Card</string>
+    <string name="telkomsel">Telkomsel</string>
+    <string name="_0821_3477_2921">0821-3477-2921</string>
+    <string name="xl_axiata">XL Axiata</string>
+    <string name="_0818_2288_007">0818-2288-007</string>
+    <string name="registrasi_baru">Registrasi Baru</string>
+    <string name="masukkan_nomor_sim_card_yang_akan_diregistrasi">Masukkan nomor sim card yang akan diregistrasi</string>
 </resources>
