@@ -1,19 +1,19 @@
-package com.marcelldr.thefolks.presentation.home
+package com.marcelldr.thefolks.presentation.home.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.marcelldr.thefolks.databinding.FragmentWalletBinding
+import com.marcelldr.thefolks.databinding.FragmentProfileBinding
 
-class WalletFragment : Fragment() {
-    private lateinit var binding: FragmentWalletBinding
+class ProfileFragment : Fragment() {
+    private lateinit var binding: FragmentProfileBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentWalletBinding.inflate(inflater, container, false)
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
         setUp()
         return binding.root
     }

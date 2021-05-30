@@ -12,9 +12,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.marcelldr.thefolks.R
 import com.marcelldr.thefolks.databinding.ActivityUpgradeP3Binding
-import com.marcelldr.thefolks.presentation.access.LoginActivity
-import com.marcelldr.thefolks.presentation.dialog.LoadingDialog
 import com.marcelldr.thefolks.presentation.dialog.SuccessDialog
+import com.marcelldr.thefolks.presentation.home.HomeActivity
 import org.koin.android.ext.android.inject
 import java.io.File
 
@@ -114,7 +113,7 @@ class UpgradeP3Activity : AppCompatActivity() {
             SuccessDialog.OnContinueClickCallback {
             override fun onClicked() {
                 upgradeSuccessDialog.dismiss()
-                val intent = Intent(this@UpgradeP3Activity, LoginActivity::class.java)
+                val intent = Intent(this@UpgradeP3Activity, HomeActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
             }
@@ -155,8 +154,30 @@ class UpgradeP3Activity : AppCompatActivity() {
     private fun submitPhotos() {
         val ref = storage.reference
         ref.child("users").child(user?.uid.toString()).child("photo_ktp.jpg")
-            .putFile(Uri.fromFile(ktpDirectory))
+            .putFile(Uri.fromFile(ktpDirectory)).addOnCompleteListener {
+                if (it.isSuccessful) {
+                    it.result?.storage?.downloadUrl?.addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            val data = HashMap<String, Any>()
+                            data["photo_ktp"] = it.result.toString()
+                            db.collection("waiting_list").document(user?.uid.toString())
+                                .update(data)
+                        }
+                    }
+                }
+            }
         ref.child("users").child(user?.uid.toString()).child("photo_selfie.jpg")
-            .putFile(Uri.fromFile(selfieDirectory))
+            .putFile(Uri.fromFile(selfieDirectory)).addOnCompleteListener {
+                if (it.isSuccessful) {
+                    it.result?.storage?.downloadUrl?.addOnCompleteListener {
+                        if (it.isSuccessful) {
+                            val data = HashMap<String, Any>()
+                            data["photo_selfie"] = it.result.toString()
+                            db.collection("waiting_list").document(user?.uid.toString())
+                                .update(data)
+                        }
+                    }
+                }
+            }
     }
 }

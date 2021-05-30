@@ -1,7 +1,7 @@
 package com.marcelldr.thefolks
 
 import android.app.Application
-import com.marcelldr.thefolks.di.firebaseModule
+import com.marcelldr.thefolks.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -15,7 +15,11 @@ class MyApplication: Application() {
             androidContext(this@MyApplication)
             modules(
                 listOf(
-                    firebaseModule
+                    firebaseModule,
+                    networkModule,
+                    repositoryModule,
+                    useCaseModule,
+                    viewModelModule
                 )
             )
         }

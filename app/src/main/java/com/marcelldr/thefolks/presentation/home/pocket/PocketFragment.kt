@@ -1,4 +1,4 @@
-package com.marcelldr.thefolks.presentation.home
+package com.marcelldr.thefolks.presentation.home.pocket
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.marcelldr.thefolks.databinding.FragmentPocketBinding
+import com.thefinestartist.finestwebview.FinestWebView
 
 
 class PocketFragment : Fragment() {

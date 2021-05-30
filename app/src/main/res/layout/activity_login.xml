@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/login_background" />
+        app:srcCompat="@drawable/background_login" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -91,7 +91,8 @@
                 android:layout_height="wrap_content"
                 app:boxStrokeColor="@color/grey"
                 app:hintEnabled="false"
-                app:passwordToggleEnabled="true">
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/grey">
 
                 <EditText
                     android:id="@+id/loginPasswordField"

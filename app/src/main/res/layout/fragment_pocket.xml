@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#E4E4E4"
     android:orientation="vertical"
-    tools:context=".presentation.home.PocketFragment">
+    tools:context=".presentation.home.pocket.PocketFragment">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                 android:layout_marginBottom="24dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardElevation="0dp"
-                app:strokeColor="@color/secondary_color"
+                app:strokeColor="#309CFF"
                 app:strokeWidth="1dp">
 
 
@@ -67,7 +67,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/secondary_color"
+                        android:background="#309CFF"
                         android:paddingStart="12dp"
                         android:paddingTop="8dp"
                         android:paddingEnd="12dp"
@@ -89,8 +89,8 @@
                         <ImageView
                             android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:contentDescription="@string/todo"
                             android:adjustViewBounds="true"
+                            android:contentDescription="@string/todo"
                             app:srcCompat="@drawable/kartu_sim_c" />
 
                         <LinearLayout
@@ -130,8 +130,8 @@
                         <ImageView
                             android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:contentDescription="@string/todo"
                             android:adjustViewBounds="true"
+                            android:contentDescription="@string/todo"
                             app:srcCompat="@drawable/kartu_npwp" />
 
                         <LinearLayout
@@ -170,8 +170,8 @@
                         <ImageView
                             android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:contentDescription="@string/todo"
                             android:adjustViewBounds="true"
+                            android:contentDescription="@string/todo"
                             app:srcCompat="@drawable/kartu_bpjs" />
 
                         <LinearLayout
@@ -203,7 +203,7 @@
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="@color/white"
                 app:cardElevation="0dp"
-                app:strokeColor="@color/secondary_color"
+                app:strokeColor="#309CFF"
                 app:strokeWidth="1dp">
 
 
@@ -215,7 +215,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/secondary_color"
+                        android:background="#309CFF"
                         android:paddingStart="12dp"
                         android:paddingTop="8dp"
                         android:paddingEnd="12dp"
@@ -237,8 +237,8 @@
                         <ImageView
                             android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:contentDescription="@string/todo"
                             android:adjustViewBounds="true"
+                            android:contentDescription="@string/todo"
                             app:srcCompat="@drawable/logo_telkomsel" />
 
                         <LinearLayout
@@ -277,8 +277,8 @@
                         <ImageView
                             android:layout_width="120dp"
                             android:layout_height="wrap_content"
-                            android:contentDescription="@string/todo"
                             android:adjustViewBounds="true"
+                            android:contentDescription="@string/todo"
                             app:srcCompat="@drawable/logo_xl" />
 
                         <LinearLayout
@@ -308,40 +308,40 @@
                         android:layout_height="1dp"
                         android:background="@color/grey" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:padding="12dp">
+                    <!--                    <LinearLayout-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="match_parent"-->
+                    <!--                        android:orientation="horizontal"-->
+                    <!--                        android:padding="12dp">-->
 
-                        <ImageView
-                            android:layout_width="120dp"
-                            android:layout_height="wrap_content"
-                            android:contentDescription="@string/todo"
-                            android:adjustViewBounds="true"
-                            app:srcCompat="@drawable/kartu_placeholder" />
+                    <!--                        <ImageView-->
+                    <!--                            android:layout_width="120dp"-->
+                    <!--                            android:layout_height="wrap_content"-->
+                    <!--                            android:contentDescription="@string/todo"-->
+                    <!--                            android:adjustViewBounds="true"-->
+                    <!--                            app:srcCompat="@drawable/kartu_placeholder" />-->
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="12dp"
-                            android:orientation="vertical">
+                    <!--                        <LinearLayout-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="match_parent"-->
+                    <!--                            android:layout_marginStart="12dp"-->
+                    <!--                            android:orientation="vertical">-->
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/registrasi_baru"
-                                android:textColor="#454545"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
+                    <!--                            <TextView-->
+                    <!--                                android:layout_width="match_parent"-->
+                    <!--                                android:layout_height="wrap_content"-->
+                    <!--                                android:text="@string/registrasi_baru"-->
+                    <!--                                android:textColor="#454545"-->
+                    <!--                                android:textSize="18sp"-->
+                    <!--                                android:textStyle="bold" />-->
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/masukkan_nomor_sim_card_yang_akan_diregistrasi"
-                                android:textColor="@android:color/secondary_text_light" />
-                        </LinearLayout>
-                    </LinearLayout>
+                    <!--                            <TextView-->
+                    <!--                                android:layout_width="match_parent"-->
+                    <!--                                android:layout_height="wrap_content"-->
+                    <!--                                android:text="@string/masukkan_nomor_sim_card_yang_akan_diregistrasi"-->
+                    <!--                                android:textColor="@android:color/secondary_text_light" />-->
+                    <!--                        </LinearLayout>-->
+                    <!--                    </LinearLayout>-->
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

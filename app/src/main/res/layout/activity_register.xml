@@ -118,7 +118,8 @@
             android:layout_height="wrap_content"
             app:boxStrokeColor="@color/grey"
             app:hintEnabled="false"
-            app:passwordToggleEnabled="true">
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/grey">
 
             <EditText
                 android:id="@+id/registerPasswordField"

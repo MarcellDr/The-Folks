@@ -13,26 +13,57 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TheFolks">
-        <activity android:name=".presentation.home.HomeActivity">
+        android:theme="@style/Theme.TheFolks"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".presentation.home.dashboard.DashboardDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.home.HomeActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name=".presentation.upgrade.UpgradeP3Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.upgrade.UpgradeP2Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.upgrade.UpgradeP1Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.upgrade.PhotoReviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.upgrade.PhotoSelfieActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.upgrade.PhotoKtpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.access.ForgetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.access.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.access.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.init.WelcomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.init.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.upgrade.UpgradeP3Activity" />
-        <activity android:name=".presentation.upgrade.UpgradeP2Activity" />
-        <activity android:name=".presentation.upgrade.UpgradeP1Activity" />
-        <activity android:name=".presentation.upgrade.PhotoReviewActivity" />
-        <activity android:name=".presentation.upgrade.PhotoSelfieActivity" />
-        <activity android:name=".presentation.upgrade.PhotoKtpActivity" />
-        <activity android:name=".presentation.access.ForgetActivity" />
-        <activity android:name=".presentation.access.RegisterActivity" />
-        <activity android:name=".presentation.access.LoginActivity" />
-        <activity android:name=".presentation.init.WelcomeActivity" />
-        <activity android:name=".presentation.init.SplashActivity"></activity>
         <activity
             android:name="com.thefinestartist.finestwebview.FinestWebViewActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"

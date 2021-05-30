@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -22,6 +23,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField 'String', 'NEWSAPI_KEY', '"2839840cec844fbfbb3bd7fc47fdac01"'
     }
 
     buildTypes {
@@ -73,4 +75,16 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
 
     implementation "com.thefinestartist:finestwebview:1.2.7"
+
+    implementation 'me.relex:circleindicator:2.1.6'
+
+    implementation 'com.amitshekhar.android:android-networking:1.0.2'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+
+    implementation 'androidx.recyclerview:recyclerview:1.2.0'
+
+    implementation "androidx.constraintlayout:constraintlayout:2.0.4"
+
+
 }
