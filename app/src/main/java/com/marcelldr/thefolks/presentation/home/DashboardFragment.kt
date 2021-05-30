@@ -39,13 +39,6 @@ class DashboardFragment : Fragment() {
         carouselLayout.setImageListener { position, imageView ->
             imageView.setImageResource(sampleImages[position])
         }
-    }
-
-
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
 
 
     }

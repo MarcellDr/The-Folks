@@ -15,6 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheFolks">
+        <activity android:name=".presentation.home.SimActivity"></activity>
+        <activity android:name=".presentation.home.KartuKeluargaSejahteraActivity" />
+        <activity android:name=".presentation.home.KartuIndonesiaPintarActivity" />
+        <activity android:name=".presentation.home.KartuIndonesiaSehatActivity" />
+        <activity android:name=".presentation.home.PrakerjaActivity" />
         <activity android:name=".presentation.home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,7 +37,7 @@
         <activity android:name=".presentation.access.RegisterActivity" />
         <activity android:name=".presentation.access.LoginActivity" />
         <activity android:name=".presentation.init.WelcomeActivity" />
-        <activity android:name=".presentation.init.SplashActivity"></activity>
+        <activity android:name=".presentation.init.SplashActivity" />
         <activity
             android:name="com.thefinestartist.finestwebview.FinestWebViewActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
