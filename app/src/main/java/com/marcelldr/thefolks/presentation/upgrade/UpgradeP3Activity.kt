@@ -9,6 +9,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.storage.FirebaseStorage
 import com.marcelldr.thefolks.R
 import com.marcelldr.thefolks.databinding.ActivityUpgradeP3Binding
@@ -149,6 +150,19 @@ class UpgradeP3Activity : AppCompatActivity() {
         data["name"] = name
         db.collection("waiting_list").document(user?.uid.toString()).set(data)
         db.collection("users").document(user?.uid.toString()).update("status", "waiting")
+        setToken()
+    }
+
+    private fun setToken() {
+        val user = mAuth.currentUser
+        val data = HashMap<String, Any>()
+        FirebaseMessaging.getInstance().token.addOnCompleteListener {
+            val token = it.result
+            data["token"] = token.toString()
+            db.collection("waiting_list")
+                .document(user?.uid.toString())
+                .update(data)
+        }
     }
 
     private fun submitPhotos() {

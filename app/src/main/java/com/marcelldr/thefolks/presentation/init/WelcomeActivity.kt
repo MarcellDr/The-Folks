@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.marcelldr.thefolks.R
 import com.marcelldr.thefolks.databinding.ActivityWelcomeBinding
 import com.marcelldr.thefolks.presentation.access.LoginActivity
+import com.marcelldr.thefolks.presentation.phone.PhoneActivity
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding

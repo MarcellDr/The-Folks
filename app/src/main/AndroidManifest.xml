@@ -5,6 +5,7 @@
     <uses-feature android:name="android.hardware.camera.any" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -17,14 +18,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TheFolks"
         android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_stat_ic_notification" />
+
+        <activity
+            android:name=".presentation.phone.PhoneOtpActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity
+            android:name=".presentation.phone.PhoneRegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.phone.PhoneLoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".presentation.phone.PhoneActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
         <activity
             android:name=".presentation.home.dashboard.DashboardDetailActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".presentation.home.HomeActivity"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".presentation.upgrade.UpgradeP3Activity"
             android:screenOrientation="portrait" />
@@ -69,6 +89,14 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="sensor"
             android:theme="@style/FinestWebViewTheme.Light" />
+
+        <service
+            android:name=".utils.FirebaseCloudMessaging"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

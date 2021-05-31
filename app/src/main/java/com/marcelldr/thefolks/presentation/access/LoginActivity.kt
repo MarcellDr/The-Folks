@@ -7,6 +7,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.messaging.FirebaseMessaging
 import com.marcelldr.thefolks.R
 import com.marcelldr.thefolks.databinding.ActivityLoginBinding
 import com.marcelldr.thefolks.presentation.dialog.LoadingDialog
@@ -16,6 +18,7 @@ import org.koin.android.ext.android.inject
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private val mAuth: FirebaseAuth by inject()
+    private val db: FirebaseFirestore by inject()
     private var email: String = ""
     private var password: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,6 +71,7 @@ class LoginActivity : AppCompatActivity() {
                     baseContext, "Login berhasil",
                     Toast.LENGTH_SHORT
                 ).show()
+                setToken()
                 startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
                 finish()
             } else {
@@ -99,6 +103,18 @@ class LoginActivity : AppCompatActivity() {
             binding.loginEmailAlert.error = "Email tidak boleh kosong!"
             binding.loginEmailAlert.isErrorEnabled = true
             false
+        }
+    }
+
+    private fun setToken() {
+        val user = mAuth.currentUser
+        val data = HashMap<String, Any>()
+        FirebaseMessaging.getInstance().token.addOnCompleteListener {
+            val token = it.result
+            data["token"] = token.toString()
+            db.collection("users")
+                .document(user?.uid.toString())
+                .update(data)
         }
     }
 }

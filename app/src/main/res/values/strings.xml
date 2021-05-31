@@ -63,4 +63,6 @@
     <string name="registrasi_baru">Registrasi Baru</string>
     <string name="masukkan_nomor_sim_card_yang_akan_diregistrasi">Masukkan nomor sim card yang akan diregistrasi</string>
     <string name="beranda">Beranda</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="fcm_message">FCM Message</string>
 </resources>
