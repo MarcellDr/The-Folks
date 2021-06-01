@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_navigation"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.marcelldr.thefolks.presentation.home.dashboard.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/pocketFragment"
+        android:name="com.marcelldr.thefolks.presentation.home.pocket.PocketFragment"
+        android:label="fragment_pocket"
+        tools:layout="@layout/fragment_pocket" />
+    <fragment
+        android:id="@+id/walletFragment"
+        android:name="com.marcelldr.thefolks.presentation.home.wallet.WalletFragment"
+        android:label="fragment_wallet"
+        tools:layout="@layout/fragment_wallet" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.marcelldr.thefolks.presentation.home.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
