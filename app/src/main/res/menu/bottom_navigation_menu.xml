@@ -12,7 +12,7 @@
 
     <item
         android:id="@+id/walletFragment"
-        android:title="@string/e_money"
+        android:title="E-Transport"
         android:icon="@drawable/ic_wallet"/>
     <item
         android:id="@+id/profileFragment"

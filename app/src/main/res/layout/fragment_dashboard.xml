@@ -46,10 +46,10 @@
                         android:layout_weight="1" />
 
                     <ImageView
-                        android:id="@+id/dashboardServiceButton"
+                        android:id="@+id/dashboardLogout"
                         android:layout_width="27dp"
                         android:layout_height="27dp"
-                        android:src="@drawable/flat_cs" />
+                        android:src="@drawable/ic_logout" />
                 </LinearLayout>
 
 

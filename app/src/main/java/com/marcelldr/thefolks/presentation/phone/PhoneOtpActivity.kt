@@ -126,6 +126,11 @@ class PhoneOtpActivity : AppCompatActivity() {
 
     private fun callback() {
         callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+            override fun onCodeAutoRetrievalTimeOut(p0: String) {
+                super.onCodeAutoRetrievalTimeOut(p0)
+                loadingDialog.dismiss()
+            }
+
             override fun onVerificationCompleted(p0: PhoneAuthCredential) {
                 code = p0.smsCode
                 loadingDialog.dismiss()
@@ -163,7 +168,7 @@ class PhoneOtpActivity : AppCompatActivity() {
         callback()
         val options = PhoneAuthOptions.newBuilder(mAuth)
             .setPhoneNumber(phoneNumber)       // Phone number to verify
-            .setTimeout(10L, TimeUnit.SECONDS) // Timeout and unit
+            .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
             .setActivity(this)                 // Activity (for callback binding)
             .setCallbacks(callbacks)          // OnVerificationStateChangedCallbacks
             .build()

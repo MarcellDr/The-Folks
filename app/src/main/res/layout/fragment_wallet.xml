@@ -30,7 +30,7 @@
                 android:layout_marginStart="12dp"
                 android:layout_weight="1"
                 android:fontFamily="sans-serif-medium"
-                android:text="@string/e_money"
+                android:text="E-Transport with BRIZZI"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:adjustViewBounds="true"
-            android:src="@drawable/logo_emoney" />
+            android:src="@drawable/logo_brizzi" />
     </FrameLayout>
 
     <LinearLayout

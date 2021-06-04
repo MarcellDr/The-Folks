@@ -6,15 +6,25 @@ import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.androidnetworking.AndroidNetworking
+import com.androidnetworking.common.Priority
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.storage.FirebaseStorage
 import com.marcelldr.thefolks.R
 import com.marcelldr.thefolks.databinding.ActivityUpgradeP3Binding
+import com.marcelldr.thefolks.presentation.dialog.LoadingDialog
 import com.marcelldr.thefolks.presentation.dialog.SuccessDialog
 import com.marcelldr.thefolks.presentation.home.HomeActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.json.JSONObject
 import org.koin.android.ext.android.inject
 import java.io.File
 
@@ -102,23 +112,27 @@ class UpgradeP3Activity : AppCompatActivity() {
         if (!validation()) {
             return
         }
-
+        val loadingDialog = LoadingDialog(this)
+        submitWaitingList()
+        submitPhotos()
+//        lifecycleScope.launch(Dispatchers.IO) {
+//            triggerAPI()
+//        }
         val upgradeSuccessDialog = SuccessDialog(
             this,
             resources.getString(R.string.upgrade_success_message)
         )
-        submitWaitingList()
-        submitPhotos()
         upgradeSuccessDialog.show()
         upgradeSuccessDialog.setOnContinueClickCallback(object :
             SuccessDialog.OnContinueClickCallback {
             override fun onClicked() {
                 upgradeSuccessDialog.dismiss()
                 val intent = Intent(this@UpgradeP3Activity, HomeActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
             }
         })
+
     }
 
     private fun validation(): Boolean {
@@ -153,18 +167,6 @@ class UpgradeP3Activity : AppCompatActivity() {
         setToken()
     }
 
-    private fun setToken() {
-        val user = mAuth.currentUser
-        val data = HashMap<String, Any>()
-        FirebaseMessaging.getInstance().token.addOnCompleteListener {
-            val token = it.result
-            data["token"] = token.toString()
-            db.collection("waiting_list")
-                .document(user?.uid.toString())
-                .update(data)
-        }
-    }
-
     private fun submitPhotos() {
         val ref = storage.reference
         ref.child("users").child(user?.uid.toString()).child("photo_ktp.jpg")
@@ -176,6 +178,8 @@ class UpgradeP3Activity : AppCompatActivity() {
                             data["photo_ktp"] = it.result.toString()
                             db.collection("waiting_list").document(user?.uid.toString())
                                 .update(data)
+                        } else {
+                            Toast.makeText(this, it.exception?.message.toString(), Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
@@ -189,9 +193,43 @@ class UpgradeP3Activity : AppCompatActivity() {
                             data["photo_selfie"] = it.result.toString()
                             db.collection("waiting_list").document(user?.uid.toString())
                                 .update(data)
+                        } else {
+                            Toast.makeText(this, it.exception?.message.toString(), Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
             }
+    }
+
+    private fun setToken() {
+        val user = mAuth.currentUser
+        val data = HashMap<String, Any>()
+        FirebaseMessaging.getInstance().token.addOnCompleteListener {
+            val token = it.result
+            data["token"] = token.toString()
+            db.collection("waiting_list")
+                .document(user?.uid.toString())
+                .update(data)
+        }
+    }
+
+    private suspend fun triggerAPI() {
+        val user = mAuth.currentUser
+        AndroidNetworking.initialize(applicationContext)
+        withContext(Dispatchers.IO) {
+            val request = AndroidNetworking.get("http://34.101.235.88:8080/verify")
+                .addQueryParameter("user_id", user?.uid.toString())
+                .setPriority(Priority.LOW)
+                .build()
+            val response = request.executeForJSONObject()
+            if (response.isSuccess) {
+                val json: JSONObject = response.result as JSONObject
+                Log.i("Success", json.toString())
+            } else {
+                Log.i("Error", "Error")
+                throw response.error
+            }
+        }
+
     }
 }

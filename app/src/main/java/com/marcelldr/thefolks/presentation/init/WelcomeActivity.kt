@@ -27,7 +27,8 @@ class WelcomeActivity : AppCompatActivity() {
             setContentView(binding.root)
 
             binding.welcomeButton.setOnClickListener {
-                startActivity(Intent(this@WelcomeActivity, LoginActivity::class.java))
+//                startActivity(Intent(this@WelcomeActivity, LoginActivity::class.java))
+                startActivity(Intent(this@WelcomeActivity, PhoneActivity::class.java))
                 finish()
             }
         }
